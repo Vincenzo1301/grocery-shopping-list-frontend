@@ -1,0 +1,12 @@
+.item {
+    flex-grow: 1;
+    text-align:center;
+    background-color: brown;
+    margin: 10px;
+    padding-top: 10px;
+}
+
+.photo {
+    height: 200px;
+    width: 200px; 
+}
