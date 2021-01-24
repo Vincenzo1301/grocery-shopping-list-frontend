@@ -1,5 +1,5 @@
 import './Item.css';
-import logo from './../../resources/brot2.png';
+import logo from './../../resources/milk.png';
 
 function Item() {
   return (
@@ -8,7 +8,7 @@ function Item() {
         <img className="photo" src={logo} alt="Logo" />
       </div>
       <div className="item-body">
-        <p>Brot</p>
+        <p className="p">Milch</p>
       </div>
     </div>
   );
