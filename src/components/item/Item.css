@@ -1,7 +1,7 @@
 .item {
     flex-grow: 1;
     text-align:center;
-    background-color: #F7444e;
+    background-color: #374785;
     margin: 10px;
     padding-top: 10px;
 }
@@ -11,4 +11,4 @@
     width: 200px; 
 }
 
-.p { color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; font-weight: bold;}
+.p { color: whitesmoke; font-family: 'Helvetica Neue', sans-serif; font-size: 18px; line-height: 24px; font-weight: bold;}

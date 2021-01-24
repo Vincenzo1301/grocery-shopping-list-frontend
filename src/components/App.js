@@ -32,10 +32,12 @@ export default class App extends React.Component {
     <Nav className="mr-auto">
       <Nav.Link href="#home">Drucken</Nav.Link>
     </Nav>
+    {/* --> Search function will be implemented in the future...
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="secondary">Search</Button>
     </Form>
+    */}
   </Navbar>
       </div>
       <div className="grid">
