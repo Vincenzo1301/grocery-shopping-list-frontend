@@ -1,14 +1,14 @@
 import './Item.css';
 import logo from './../../resources/milk.png';
 
-function Item() {
+function Item(props) {
   return (
     <div className="item">
       <div  >
-        <img className="photo" src={logo} alt="Logo" />
+        <img className="photo" src={`data:image/jpeg;base64,${props.data}`} alt="Logo" />
       </div>
       <div className="item-body">
-        <p className="p">Milch</p>
+        <p className="p">{props.name}</p>
       </div>
     </div>
   );
