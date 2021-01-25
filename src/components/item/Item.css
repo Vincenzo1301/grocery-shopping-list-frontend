@@ -1,14 +1,19 @@
 .item {
     flex-grow: 1;
-    text-align:center;
-    background-color: #374785;
+    text-align: center;
     margin: 10px;
     padding-top: 10px;
 }
 
 .photo {
     height: 200px;
-    width: 200px; 
+    width: 200px;
 }
 
-.p { color: whitesmoke; font-family: 'Helvetica Neue', sans-serif; font-size: 18px; line-height: 24px; font-weight: bold;}
+.p {
+    color: whitesmoke;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+}

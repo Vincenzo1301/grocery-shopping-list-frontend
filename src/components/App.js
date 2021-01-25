@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Navbar, Nav, NavbarBrand, Form, FormControl, Button} from 'react-bootstrap';
+import { Navbar, Nav, NavbarBrand, Form, FormControl, Button } from 'react-bootstrap';
 import 'react-bootstrap/NavbarBrand';
 
 
@@ -14,41 +14,34 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {items: []};
+    this.state = { items: [] };
   }
 
   componentDidMount() {
     fetch(`http://localhost:8080/api/v1/items`)
-      .then(result=>result.json())
-      .then(items=>this.setState({items}))
+      .then(result => result.json())
+      .then(items => this.setState({ items }))
   }
 
   render() {
     return (
-    <div>
-      <div className="header">
-      <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Lebensmittelvorrat</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Drucken</Nav.Link>
-    </Nav>
-    {/* --> Search function will be implemented in the future...
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="secondary">Search</Button>
-    </Form>
-    */}
-  </Navbar>
+      <div>
+        <div className="header">
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">Lebensmittelvorrat</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="#home">Drucken</Nav.Link>
+            </Nav>
+          </Navbar>
+        </div>
+        <div className="grid">
+          {
+            this.state.items.map((item, i) => (
+              <Item name={item.name} data={item.imageFile.data} />
+            ))
+          }
+        </div>
       </div>
-      <div className="grid">
-      {
-      this.state.items.map((item, i) => (
-      <Item name={item.name} data={item.imageFile.data} />
-        ))
-      }
-      </div>
-    </div>
     );
   }
 }
-
