@@ -18,7 +18,9 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8080/api/v1/items`)
+    fetch(`http://localhost:8080/api/v1/items`, {
+        headers: {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"}
+    })
       .then(result => result.json())
       .then(items => this.setState({ items }))
   }
@@ -37,7 +39,7 @@ export default class App extends React.Component {
         <div className="grid">
           {
             this.state.items.map((item, i) => (
-              <Item name={item.name} data={item.imageFile.data} />
+              <Item name={item.name} data={item.imageFile.data} out={item.out} id={item.id}/>
             ))
           }
         </div>
