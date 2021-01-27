@@ -3,6 +3,8 @@ import './App.css';
 import React, { Component } from 'react';
 
 
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Navbar, Nav, NavbarBrand, Form, FormControl, Button } from 'react-bootstrap';
@@ -25,6 +27,34 @@ export default class App extends React.Component {
       .then(items => this.setState({ items }))
   }
 
+  open=()=> {
+    var axios = require('axios');
+
+    axios.get(
+      'http://localhost:8080/api/v1/items/download-pdf',
+      {
+        headers: {
+          'Content-type': 'application/json',
+          'x-auth-token': this.props.token
+        },
+        responseType: 'blob'
+      }
+    )
+        .then(response => {
+          //Create a Blob from the PDF Stream
+          const file = new Blob([response.data], {
+            type: "application/pdf"
+          });
+          //Build a URL from the file
+          const fileURL = URL.createObjectURL(file);
+          //Open the URL on new Window
+          window.open(fileURL);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+   }
+
   render() {
     return (
       <div>
@@ -32,7 +62,7 @@ export default class App extends React.Component {
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home">Lebensmittelvorrat</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Drucken</Nav.Link>
+              <Nav.Link onClick={this.open} href="#home">Drucken</Nav.Link>
             </Nav>
           </Navbar>
         </div>
